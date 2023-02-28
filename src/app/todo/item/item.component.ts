@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 	selector: '[todo-item]',
 	template: `
 		<ng-content></ng-content>
-		<button>delete</button>
+		<button (click)="delete.emit(todoId)">delete</button>
 	`,
 	styles: [``],
 	host: {},
@@ -14,5 +14,5 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class TodoItem {
 	@Input() todoId: number = 0;
-	@Output() delete: EventEmitter<null> = new EventEmitter();
+	@Output() delete: EventEmitter<number> = new EventEmitter();
 }
